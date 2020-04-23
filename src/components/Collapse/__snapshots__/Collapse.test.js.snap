@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Collapse /> Snapshots should render as collapsed 1`] = `
+<DocumentFragment>
+  <div
+    class="root"
+    data-testid="collapse"
+  >
+    <div
+      class="header"
+      data-testid="collapse-header"
+    >
+      <h6 />
+      <span
+        class="arrow"
+      >
+        ↓
+      </span>
+    </div>
+    <div
+      class="wrapper"
+      style="height: 0px;"
+    >
+      <div
+        class="innerWrapper"
+      >
+        collapse
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Collapse /> Snapshots should render as expanded 1`] = `
+<DocumentFragment>
+  <div
+    class="root expanded"
+    data-testid="collapse"
+  >
+    <div
+      class="header expanded"
+      data-testid="collapse-header"
+    >
+      <h6 />
+      <span
+        class="arrow rotate"
+      >
+        ↓
+      </span>
+    </div>
+    <div
+      class="wrapper"
+      style="height: 0px;"
+    >
+      <div
+        class="innerWrapper"
+      >
+        collapse
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

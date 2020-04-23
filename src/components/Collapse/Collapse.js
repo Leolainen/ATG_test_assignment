@@ -36,12 +36,14 @@ const Collapse = (props) => {
         },
         className
       )}
+      data-testid="collapse"
       {...other}
     >
       <div
         className={classnames(styles.header, {
           [styles.expanded]: !collapsed,
         })}
+        data-testid="collapse-header"
         onClick={handleClick}
       >
         <h6>{label}</h6>
@@ -54,6 +56,7 @@ const Collapse = (props) => {
           ↓
         </span>
       </div>
+
       <div className={styles.wrapper} style={{ height: wrapperHeight }}>
         <div className={styles.innerWrapper} ref={wrapperRef}>
           {children}
