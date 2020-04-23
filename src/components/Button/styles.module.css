@@ -1,0 +1,35 @@
+.root {
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  border: none;
+  appearance: none;
+  position: relative;
+  text-decoration: none;
+  transition: all 125ms ease-out;
+  display: inline-block;
+  border-radius: 3px;
+  padding: 4px 16px;
+}
+
+.color {
+  background-color: var(--harmony-5);
+}
+
+.color:hover {
+  background-color: var(--harmony-6);
+}
+
+.fab {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}
+
+.label {
+  width: 100%;
+  display: inherit;
+  align-items: inherit;
+  justify-content: inherit;
+}
