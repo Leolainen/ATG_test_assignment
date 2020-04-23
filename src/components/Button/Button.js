@@ -9,6 +9,7 @@ const Button = (props) => {
   return (
     <button
       className={classnames(styles.root, styles.color, className)}
+      data-testid="button"
       {...other}
     >
       <span className={styles.label}>{children}</span>
