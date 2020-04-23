@@ -1,9 +1,13 @@
 .root {
-  width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: 8px;
+  padding-right: 8px;
+
+  @media screen and (min-width: 600px) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }
 
 .maxWidth {
