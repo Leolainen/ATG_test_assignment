@@ -1,11 +1,14 @@
 import { fetchGameById } from "api";
 import React, { useEffect } from "react";
 import { useAppContext } from "containers/App/AppContext";
+import classnames from "classnames";
 import PropTypes from "prop-types";
+import List from "components/List";
+import ListItem from "components/ListItem";
+import Collapse from "components/Collapse";
 import styles from "./styles.module.css";
 
 const Results = (props) => {
-  const { className, children, ...other } = props;
   const { game, setGame, searchResults, isLoading } = useAppContext();
 
   useEffect(() => {
@@ -13,81 +16,102 @@ const Results = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchResults]);
 
-  const Loading = isLoading && <p>Loading ...</p>;
-
   const Results =
-    !isLoading && searchResults && game !== undefined ? (
-      <ul>
-        <li>
-          <h1>{searchResults.betType}</h1>
-        </li>
+    searchResults && game ? (
+      <div>
+        <h1>Results for {searchResults.betType}</h1>
 
-        {game.races.map((race) => (
-          <li>
-            <div>race number: {race.number}</div>
+        <div className={styles.listHeader}>
+          <span>Race number</span>
 
-            <div>track name: {race.track.name}</div>
+          <span>Track name</span>
 
-            <div>start time: {race.startTime}</div>
+          <span>Start time</span>
+        </div>
 
-            <div>
-              <h5>Starts:</h5>
+        {game?.races?.map((race) => (
+          <List key={race.id} className={styles.resultList}>
+            <ListItem className={styles.raceInfo}>
+              <span>{race.number}</span>
 
-              <ol>
-                {race.starts.map((start) => (
-                  <li style={{ marginBottom: 16 }}>
-                    <div>start number: {start.number}</div>
+              <span>{race.track.name}</span>
 
-                    <div>horse: {start.horse.name}</div>
+              <span>{race.startTime}</span>
+            </ListItem>
 
-                    <div>
-                      <h6>expanded view:</h6>
+            <ListItem
+              className={styles.startsWrapper}
+              disableDivider
+              disablePadding
+            >
+              <Collapse label="Show all starts" className={styles.collapse}>
+                <List>
+                  <ListItem
+                    className={classnames(
+                      styles.startsHeader,
+                      styles.startListItem
+                    )}
+                    disableDivider
+                  >
+                    <span>Start number</span>
 
-                      <div>
-                        rider:{" "}
+                    <span>Horse name</span>
+
+                    <span>Rider name</span>
+
+                    <span>Trainer name</span>
+
+                    <span>Horse fathers name</span>
+                  </ListItem>
+
+                  {race.starts.map((start) => (
+                    <ListItem
+                      key={start.number}
+                      className={classnames(
+                        styles.startInfo,
+                        styles.startListItem
+                      )}
+                    >
+                      <span>{start.number}</span>
+
+                      <span>{start.horse.name}</span>
+
+                      <span>
                         {`${start.driver.firstName} ${start.driver.lastName}`}
-                      </div>
+                      </span>
 
-                      <div>
-                        trainer:{" "}
+                      <span>
                         {`${start.horse.trainer.firstName} ${start.horse.trainer.lastName}`}
-                      </div>
+                      </span>
 
-                      <div>
-                        horse father: {start.horse.pedigree.father.name}
-                      </div>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </li>
+                      <span>{start.horse.pedigree.father.name}</span>
+                    </ListItem>
+                  ))}
+                </List>
+              </Collapse>
+            </ListItem>
+          </List>
         ))}
-      </ul>
+      </div>
     ) : (
       <p>No results</p>
     );
 
   const extractGame = async () => {
-    let fetchedGame;
+    let fetchedGame = [];
 
-    if (searchResults) {
+    if (searchResults !== undefined) {
       if (searchResults.upcoming) {
         fetchedGame = await fetchGameById(searchResults.upcoming[0].id);
-      } else {
+      } else if (searchResults.result) {
         fetchedGame = await fetchGameById(searchResults.results[0].id);
       }
-
-      setGame(fetchedGame);
     }
+
+    setGame(fetchedGame);
   };
 
-  return (
-    <>
-      {Loading}
-      {Results}
-    </>
-  );
+  return <>{isLoading ? <p>Loading ...</p> : Results}</>;
 };
 
 Results.propTypes = {

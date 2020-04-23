@@ -1,2 +1,76 @@
+:root {
+  --list-header-height: 32px;
+}
+
 .root {
+}
+
+.resultList {
+  padding: 0;
+  margin-bottom: 32px;
+}
+
+.listHeader {
+  height: var(--list-header-height);
+  z-index: 2;
+  position: sticky;
+  top: 0;
+  padding: 8px 16px;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  border-bottom: 2px solid var(--harmony-5);
+  text-align: center;
+}
+
+.raceInfo {
+  background: white;
+  position: sticky;
+  top: calc(var(--list-header-height) + 16px);
+  z-index: 1;
+  font-weight: 600;
+  display: flex;
+  text-align: center;
+}
+
+.raceInfo > *,
+.listHeader > * {
+  flex: 1 1 33%;
+}
+
+.startsWrapper {
+  display: block;
+}
+
+.startListItem {
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.startListItem:last-child {
+  border: none;
+}
+
+.startInfo {
+  min-height: 65px;
+  align-items: center;
+}
+
+.startsHeader {
+  position: sticky;
+  top: calc(var(--list-header-height) + 16px * 2);
+  font-weight: 600;
+}
+
+.startsHeader > *,
+.startInfo > span {
+  flex: 0 1 15%;
+}
+
+.collapse {
+  /* display: flex; */
+  width: 100%;
 }
