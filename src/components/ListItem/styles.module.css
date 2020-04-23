@@ -1,0 +1,13 @@
+.root {
+  text-decoration: none;
+  color: var(--harmony-1);
+}
+
+.padding {
+  padding: 8px 16px;
+}
+
+.divider {
+  border-bottom: 1px solid var(--harmony-5);
+  background-clip: border-box;
+}
