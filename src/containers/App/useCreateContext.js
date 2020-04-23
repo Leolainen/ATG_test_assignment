@@ -15,12 +15,10 @@ export default (initialState = defaultState) => {
   const [isLoading, setIsLoading] = useState(initial.isLoading);
 
   const onFetchStart = useCallback(() => {
-    console.log("onFetchStart");
     setIsLoading(true);
   }, []);
 
   const onFetchEnd = useCallback(() => {
-    console.log("onFetchEnd");
     setIsLoading(false);
   }, []);
 
