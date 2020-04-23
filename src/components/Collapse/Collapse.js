@@ -20,8 +20,6 @@ const Collapse = (props) => {
       ? wrapperRef.current.clientHeight
       : 0;
 
-    console.log("currentHeight", currentHeight);
-    console.log("wrapperRef.current", wrapperRef);
     setWrapperHeight(collapsed ? 0 : currentHeight);
   }, [collapsed]);
 
