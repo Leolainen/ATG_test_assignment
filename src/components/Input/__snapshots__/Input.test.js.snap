@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Input /> Snapshots should render default 1`] = `
+<DocumentFragment>
+  <div
+    class="root"
+  >
+    <div
+      class="inner"
+    >
+      <input
+        class="input"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Input /> Snapshots should render with label and cta 1`] = `
+<DocumentFragment>
+  <div
+    class="root"
+  >
+    <label
+      class="label"
+    >
+      label
+    </label>
+    <div
+      class="inner"
+    >
+      <input
+        class="input"
+      />
+      <div
+        class="cta"
+      >
+        <button>
+          click me
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
