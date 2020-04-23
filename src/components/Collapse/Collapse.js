@@ -15,16 +15,48 @@ const Collapse = (props) => {
   const [wrapperHeight, setWrapperHeight] = useState(0);
   const wrapperRef = useRef(null);
 
+  const onMutation = (mutationsList, observer) => {
+    mutationsList.forEach((mutation) => {
+      if (mutation.attributeName === "style") {
+        /**
+         * Recalculates the list height if we use nested Collapse components
+         * The timeout is to offset the animation times.
+         */
+        setTimeout(() => {
+          calculateHeight();
+        }, 200);
+      }
+    });
+  };
+
+  const observer = new MutationObserver(onMutation);
+
   useEffect(() => {
+    calculateHeight();
+
+    if (!collapsed) {
+      observer.observe(wrapperRef.current, {
+        attributes: true,
+        class: true,
+        childList: true,
+        subtree: true,
+      });
+    } else {
+      observer.disconnect();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [collapsed, observer]);
+
+  const handleClick = () => {
+    setCollapsed(!collapsed);
+  };
+
+  const calculateHeight = () => {
     const currentHeight = wrapperRef.current
       ? wrapperRef.current.clientHeight
       : 0;
 
     setWrapperHeight(collapsed ? 0 : currentHeight);
-  }, [collapsed]);
-
-  const handleClick = () => {
-    setCollapsed(!collapsed);
   };
 
   return (
