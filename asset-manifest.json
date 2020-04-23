@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/ATG_test_assignment/static/css/main.4b4101a8.chunk.css",
-    "main.js": "/ATG_test_assignment/static/js/main.53ead3ff.chunk.js",
-    "main.js.map": "/ATG_test_assignment/static/js/main.53ead3ff.chunk.js.map",
+    "main.js": "/ATG_test_assignment/static/js/main.fd25e8b7.chunk.js",
+    "main.js.map": "/ATG_test_assignment/static/js/main.fd25e8b7.chunk.js.map",
     "runtime-main.js": "/ATG_test_assignment/static/js/runtime-main.f82b69dd.js",
     "runtime-main.js.map": "/ATG_test_assignment/static/js/runtime-main.f82b69dd.js.map",
     "static/js/2.c683807f.chunk.js": "/ATG_test_assignment/static/js/2.c683807f.chunk.js",
     "static/js/2.c683807f.chunk.js.map": "/ATG_test_assignment/static/js/2.c683807f.chunk.js.map",
     "index.html": "/ATG_test_assignment/index.html",
-    "precache-manifest.fc5d7907978c86bd553788234eba4cc9.js": "/ATG_test_assignment/precache-manifest.fc5d7907978c86bd553788234eba4cc9.js",
+    "precache-manifest.7a0b73f089d42ed78a10cb1864bec2a9.js": "/ATG_test_assignment/precache-manifest.7a0b73f089d42ed78a10cb1864bec2a9.js",
     "service-worker.js": "/ATG_test_assignment/service-worker.js",
     "static/css/main.4b4101a8.chunk.css.map": "/ATG_test_assignment/static/css/main.4b4101a8.chunk.css.map",
     "static/js/2.c683807f.chunk.js.LICENSE.txt": "/ATG_test_assignment/static/js/2.c683807f.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.f82b69dd.js",
     "static/js/2.c683807f.chunk.js",
     "static/css/main.4b4101a8.chunk.css",
-    "static/js/main.53ead3ff.chunk.js"
+    "static/js/main.fd25e8b7.chunk.js"
   ]
 }
