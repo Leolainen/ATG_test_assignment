@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ListItem /> Snapshots should render 1`] = `
+<DocumentFragment>
+  <li
+    class="root padding divider"
+  >
+    list item
+  </li>
+</DocumentFragment>
+`;
+
+exports[`<ListItem /> Snapshots should render without padding and divider 1`] = `
+<DocumentFragment>
+  <li
+    class="root"
+  >
+    list item
+  </li>
+</DocumentFragment>
+`;
