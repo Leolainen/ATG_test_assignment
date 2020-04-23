@@ -1,0 +1,159 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Results /> Snapshots should render 1`] = `
+<DocumentFragment>
+  <p>
+    No results
+  </p>
+</DocumentFragment>
+`;
+
+exports[`<Results /> Snapshots should render with results 1`] = `
+<DocumentFragment>
+  <div>
+    <h1>
+      Results for V4
+    </h1>
+    <div
+      class="listHeader"
+    >
+      <span>
+        Race number
+      </span>
+      <span>
+        Track name
+      </span>
+      <span>
+        Start time
+      </span>
+    </div>
+    <ul
+      class="root resultList"
+    >
+      <li
+        class="root padding divider raceInfo"
+      >
+        <span>
+          4
+        </span>
+        <span>
+          Östersund
+        </span>
+        <span>
+          4/24/2020, 1:29:00 PM
+        </span>
+      </li>
+      <li
+        class="root startsWrapper"
+      >
+        <div
+          class="root collapse"
+          data-testid="collapse"
+        >
+          <div
+            class="header"
+            data-testid="collapse-header"
+          >
+            <h6>
+              Starts
+            </h6>
+            <span
+              class="arrow"
+            >
+              ↓
+            </span>
+          </div>
+          <div
+            class="wrapper"
+            style="height: 0px;"
+          >
+            <div
+              class="innerWrapper"
+            >
+              <ul
+                class="root"
+              >
+                <li
+                  class="root padding startsHeader startListItem"
+                >
+                  <span>
+                    Start number
+                  </span>
+                  <span>
+                    Horse name
+                  </span>
+                  <span>
+                    Rider name
+                  </span>
+                </li>
+                <li
+                  class="root padding divider"
+                >
+                  <div
+                    class="startInfo startListItem"
+                  >
+                    <span />
+                    <span>
+                      Antilia Brodda
+                    </span>
+                    <span>
+                      Per-Eric Hjerpe
+                    </span>
+                  </div>
+                  <div
+                    class="root"
+                    data-testid="collapse"
+                  >
+                    <div
+                      class="header"
+                      data-testid="collapse-header"
+                    >
+                      <h6>
+                        More
+                      </h6>
+                      <span
+                        class="arrow"
+                      >
+                        ↓
+                      </span>
+                    </div>
+                    <div
+                      class="wrapper"
+                      style="height: 0px;"
+                    >
+                      <div
+                        class="innerWrapper"
+                      >
+                        <div
+                          class="startsHeader startListItem more"
+                        >
+                          <span>
+                            Trainer name
+                          </span>
+                          <span>
+                            Horse fathers name
+                          </span>
+                        </div>
+                        <div
+                          class="root padding startListItem more"
+                        >
+                          <span>
+                            Per-Eric Hjerpe
+                          </span>
+                          <span>
+                            Infinitif
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
