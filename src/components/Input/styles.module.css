@@ -1,0 +1,41 @@
+.root {
+}
+
+.inner {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  vertical-align: middle;
+}
+
+.input {
+  width: 100%;
+  cursor: text;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  padding: 6px;
+  border-radius: 3px;
+  box-shadow: 0 0.7px 1.6px rgba(0, 0, 0, 0.031),
+    0 2px 4.4px rgba(0, 0, 0, 0.045), 0 4.8px 10.6px rgba(0, 0, 0, 0.059),
+    0 16px 35px rgba(0, 0, 0, 0.09);
+}
+
+.input:focus {
+  outline-color: var(--harmony-2);
+}
+
+.label {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.cta {
+  position: absolute;
+  /**
+    Some magic pixels so search looks fancy
+  */
+  right: 2px;
+  top: 1px;
+}
