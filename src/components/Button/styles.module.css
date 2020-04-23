@@ -21,12 +21,6 @@
   background-color: var(--harmony-6);
 }
 
-.fab {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-}
-
 .label {
   width: 100%;
   display: inherit;
