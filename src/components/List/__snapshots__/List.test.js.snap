@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<List /> Snapshots should render 1`] = `
+<DocumentFragment>
+  <ul
+    class="root"
+  >
+    list
+  </ul>
+</DocumentFragment>
+`;
