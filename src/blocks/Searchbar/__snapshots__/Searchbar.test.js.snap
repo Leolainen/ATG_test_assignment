@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Searchbar /> Snapshots should render 1`] = `
+<DocumentFragment>
+  <div
+    class="root root"
+  >
+    <label
+      class="label"
+    >
+      Search for a gametype:
+    </label>
+    <div
+      class="inner"
+    >
+      <input
+        class="input"
+        placeholder="Search for V4, V64, V65 or V75 ..."
+        type="search"
+      />
+      <div
+        class="cta"
+      >
+        <button
+          class="root color"
+          data-testid="button"
+        >
+          <span
+            class="label"
+          >
+            Search
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
