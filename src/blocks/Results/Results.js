@@ -22,9 +22,7 @@ const Results = (props) => {
 
         <div className={styles.listHeader}>
           <span>Race number</span>
-
           <span>Track name</span>
-
           <span>Start time</span>
         </div>
 
@@ -32,9 +30,7 @@ const Results = (props) => {
           <List key={race.id} className={styles.resultList}>
             <ListItem className={styles.raceInfo}>
               <span>{race.number}</span>
-
               <span>{race.track.name}</span>
-
               <span>{localeDate(race.startTime)}</span>
             </ListItem>
 
@@ -46,9 +42,8 @@ const Results = (props) => {
               <Collapse label="Starts" className={styles.collapse}>
                 <List>
                   {race.starts.map((start) => (
-                    <>
+                    <React.Fragment key={`${start.id} ${start.number}`}>
                       <ListItem
-                        key={start.number}
                         className={classnames(
                           styles.startsHeader,
                           styles.startListItem
@@ -68,9 +63,7 @@ const Results = (props) => {
                           )}
                         >
                           <span>{start.number}</span>
-
                           <span>{start.horse.name}</span>
-
                           <span>
                             {`${start.driver.firstName} ${start.driver.lastName}`}
                           </span>
@@ -105,7 +98,7 @@ const Results = (props) => {
                           </ListItem>
                         </Collapse>
                       </ListItem>
-                    </>
+                    </React.Fragment>
                   ))}
                 </List>
               </Collapse>

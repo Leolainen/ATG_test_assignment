@@ -13,7 +13,7 @@ const EnhancedResults = (props) => {
   }, [searchResults]);
 
   const extractGame = async () => {
-    let fetchedGame = [];
+    let fetchedGame = {};
 
     if (searchResults !== undefined) {
       if (searchResults.upcoming) {
