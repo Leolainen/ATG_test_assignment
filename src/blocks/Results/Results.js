@@ -1,6 +1,4 @@
-import { fetchGameById } from "api";
-import React, { useEffect } from "react";
-import { useAppContext } from "containers/App/AppContext";
+import React from "react";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 import List from "components/List";
@@ -9,17 +7,18 @@ import Collapse from "components/Collapse";
 import styles from "./styles.module.css";
 
 const Results = (props) => {
-  const { game, setGame, searchResults, isLoading } = useAppContext();
+  const { game = {}, isLoading = false, betType } = props;
 
-  useEffect(() => {
-    extractGame();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchResults]);
+  const localeDate = (date) => {
+    const dateObj = new Date(date);
+
+    return dateObj.toLocaleString();
+  };
 
   const Results =
-    searchResults && game ? (
+    game && Object.keys(game).length > 0 ? (
       <div>
-        <h1>Results for {searchResults.betType}</h1>
+        <h1>Results for {betType}</h1>
 
         <div className={styles.listHeader}>
           <span>Race number</span>
@@ -36,7 +35,7 @@ const Results = (props) => {
 
               <span>{race.track.name}</span>
 
-              <span>{race.startTime}</span>
+              <span>{localeDate(race.startTime)}</span>
             </ListItem>
 
             <ListItem
@@ -44,48 +43,69 @@ const Results = (props) => {
               disableDivider
               disablePadding
             >
-              <Collapse label="Show all starts" className={styles.collapse}>
+              <Collapse label="Starts" className={styles.collapse}>
                 <List>
-                  <ListItem
-                    className={classnames(
-                      styles.startsHeader,
-                      styles.startListItem
-                    )}
-                    disableDivider
-                  >
-                    <span>Start number</span>
-
-                    <span>Horse name</span>
-
-                    <span>Rider name</span>
-
-                    <span>Trainer name</span>
-
-                    <span>Horse fathers name</span>
-                  </ListItem>
-
                   {race.starts.map((start) => (
-                    <ListItem
-                      key={start.number}
-                      className={classnames(
-                        styles.startInfo,
-                        styles.startListItem
-                      )}
-                    >
-                      <span>{start.number}</span>
+                    <>
+                      <ListItem
+                        key={start.number}
+                        className={classnames(
+                          styles.startsHeader,
+                          styles.startListItem
+                        )}
+                        disableDivider
+                      >
+                        <span>Start number</span>
+                        <span>Horse name</span>
+                        <span>Rider name</span>
+                      </ListItem>
 
-                      <span>{start.horse.name}</span>
+                      <ListItem>
+                        <div
+                          className={classnames(
+                            styles.startInfo,
+                            styles.startListItem
+                          )}
+                        >
+                          <span>{start.number}</span>
 
-                      <span>
-                        {`${start.driver.firstName} ${start.driver.lastName}`}
-                      </span>
+                          <span>{start.horse.name}</span>
 
-                      <span>
-                        {`${start.horse.trainer.firstName} ${start.horse.trainer.lastName}`}
-                      </span>
+                          <span>
+                            {`${start.driver.firstName} ${start.driver.lastName}`}
+                          </span>
+                        </div>
 
-                      <span>{start.horse.pedigree.father.name}</span>
-                    </ListItem>
+                        <Collapse label="More">
+                          <div
+                            className={classnames(
+                              styles.startsHeader,
+                              styles.startListItem,
+                              styles.more
+                            )}
+                          >
+                            <span>Trainer name</span>
+
+                            <span>Horse fathers name</span>
+                          </div>
+
+                          <ListItem
+                            disableDivider
+                            component="div"
+                            className={classnames(
+                              styles.startListItem,
+                              styles.more
+                            )}
+                          >
+                            <span>
+                              {`${start.horse.trainer.firstName} ${start.horse.trainer.lastName}`}
+                            </span>
+
+                            <span>{start.horse.pedigree.father.name}</span>
+                          </ListItem>
+                        </Collapse>
+                      </ListItem>
+                    </>
                   ))}
                 </List>
               </Collapse>
@@ -97,25 +117,14 @@ const Results = (props) => {
       <p>No results</p>
     );
 
-  const extractGame = async () => {
-    let fetchedGame = [];
-
-    if (searchResults !== undefined) {
-      if (searchResults.upcoming) {
-        fetchedGame = await fetchGameById(searchResults.upcoming[0].id);
-      } else if (searchResults.result) {
-        fetchedGame = await fetchGameById(searchResults.results[0].id);
-      }
-    }
-
-    setGame(fetchedGame);
-  };
-
   return <>{isLoading ? <p>Loading ...</p> : Results}</>;
 };
 
 Results.propTypes = {
   className: PropTypes.string,
+  isLoading: PropTypes.bool,
+  betType: PropTypes.string,
+  game: PropTypes.object,
 };
 
 Results.uiName = "Results";

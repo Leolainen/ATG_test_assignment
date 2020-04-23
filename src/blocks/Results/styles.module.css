@@ -60,17 +60,18 @@
 }
 
 .startsHeader {
-  position: sticky;
-  top: calc(var(--list-header-height) + 16px * 2);
   font-weight: 600;
 }
 
 .startsHeader > *,
 .startInfo > span {
-  flex: 0 1 15%;
+  flex: 0 1 33%;
 }
 
 .collapse {
-  /* display: flex; */
   width: 100%;
+}
+
+.more > span {
+  flex: 0 1 50%;
 }
